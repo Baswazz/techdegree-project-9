@@ -1,3 +1,3 @@
 ### Project instructions
 
-https://teamtreehouse.com/projects/interactive-video-player
+https://teamtreehouse.com/projects/web-app-dashboard
