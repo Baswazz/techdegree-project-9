@@ -6,10 +6,69 @@
     box-sizing: border-box;
 }
 
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  background-color: #fbfbfb;
+}
+
+strong {
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* =================================
   Base Layout Styles
 ==================================== */
 
+.header,
+.header ul {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  height: calc(100vh - 70px);
+  display: flex;
+}
+
+.header {
+  background-color: #7477bf;
+  color: #fff;
+  padding: 1em 2em;
+  height: 70px;
+}
+
+.header ul {
+  margin-left: auto;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.571428571em;
+  font-weight: 300;
+}
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav {
+  background-color: #4d4c72;
+}
+
+.alert {
+  background-color: #7377bf;
+  padding: 0.5em 1em;
+  border-radius: 3px;
+  color: #fff;
+}
 
 
 /* =================================
