@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web App Dashboard</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -59,9 +60,47 @@
             </div>
             <section class="panel">Panel</section>
             <section class="panel">Panel</section>
+            <section class="panel">
+                <h2>Social Stats</h2>
+                <div class="row">
+                    <div class="social">
+                        <div class="social-icon">
+                            <img src="icons/icon-twitter.svg" alt="Twitter">
+                        </div>
+                        <div>
+                            <h3>Twitter</h3>
+                            <div class="social-count">10,345</div>
+                        </div>
+                    </div>
+                    <div class="social">
+                        <div class="social-icon">
+                            <img src="icons/icon-facebook.svg" alt="Facebook">
+                        </div>
+                        <div>
+                            <h3>Facebook</h3>
+                            <div class="social-count">8,739</div>
+                        </div>
+                    </div>
+                    <div class="social">
+                        <div class="social-icon">
+                            <img src="icons/icon-google-plus.svg" alt="Google+">
+                        </div>
+                        <div>
+                            <h3>Google+</h3>
+                            <div class="social-count">2,530</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="panel">Panel</section>
-            <section class="panel">Panel</section>
-            <section class="panel">Panel</section>
+            <section class="panel">
+                <h2>Message User</h2>
+                <form action="index.html" method="post">
+                    <input type="search" placeholder="Search for User">
+                    <textarea placeholder="Message for User" rows="10"></textarea>
+                    <button class="btn" type="submit">Send</button>
+                </form>
+            </section>
         </main>
     </div> <!-- end .wrapper -->
     

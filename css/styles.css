@@ -7,7 +7,8 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   background-color: #fbfbfb;
 }
@@ -22,12 +23,29 @@ ul {
   padding: 0;
 }
 
+h2 {
+  font-size: .875em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #666;
+}
+
+h3 {
+  color: #7477bf;
+  font-weight: 700;
+  font-size: 1.125em; /* 18 / 16 */
+}
+
 /* =================================
   Base Layout Styles
 ==================================== */
 
 .wrapper {
   height: calc(100vh - 70px);
+  display: flex;
+}
+
+.row {
   display: flex;
 }
 
@@ -111,11 +129,90 @@ button {
 
 .panel {
   padding: 1em;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #fbfbfb;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  padding: 1.25em;
+  margin: 1em;
+}
+
+.social-icon {
+  background-color: #7377bf;
+  fill: #fff;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  margin-right: 1.25em;
+  display: flex;
+}
+
+.social-icon img {
+  width: 34px;
+  height: auto;
+  margin: auto;
+}
+
+.social h3 {
+  margin: 0;
+}
+
+.social-count {
+  color: #666;
+  font-size: 3em; /* 48 / 16 */
+  font-weight: 300;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 1em;
+  background-color: #fbfbfb;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  padding: .9em;
+  transition: .3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #7377bf;
+  background-color: #fff;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #bcbcbc;
+  font-weight: 300;
+}
+
+.btn {
+  background-color: #7377bf;
+  color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: .875em;
+  font-weight: 700;
+  border: none;
+  width: 100%;
+  padding: 1.5em;
+  transition: background-color .2s;
+}
+
+.btn:hover {
+  background-color: #6367a6;
 }
 
 .dot {
-  background-color: red;
+  background-color: #85db81;
   width: 7px;
   height: 7px;
   position: absolute;
