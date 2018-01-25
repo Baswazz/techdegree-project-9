@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App Dashboard</title>
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="logo"><strong>Your</strong>App</h1>
+        <ul>
+            <li>
+                <button>
+                    <img src="icons/icon-bell.svg">
+                    <i class="dot"></i>
+                </button>
+            </li>
+            <li>
+                <button><img class="avatar rounded" src="img/user.jpg"> Josh Sullivan</button>
+            </li>
+        </ul>
+    </header>
+
+    <div class="wrapper">
+        <nav class="nav">
+            <ul>
+                <li>
+                    <button class="active">
+                        <img src="icons/icon-dashboard.svg" alt="Dashboard">                          
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <img src="icons/icon-members.svg" alt="Members">
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <img src="icons/icon-visits.svg" alt="Visits">
+                    </a>
+                </li>
+                <li>
+                    <button>
+                        <img src="icons/icon-settings.svg" alt="Settings">
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+            <div class="alert">
+                <strong>Alert</strong> Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur brlandit tempus porttitor.
+                <button>&#10006;</button>
+            </div>
+            <section>
+                <h2>New Members</h2>
+                <div class="list">
+                    <div class="list-item">
+                        <img class="rounded" src="img/user.jpg" alt="">
+                        <div>
+                            <h2>Victoria Chambers</h2>
+                            <small><a href="#">victoria.chambers80@example.com</a></small>
+                        </div>
+                        <div class="list-item-date">10/15/15</div>
+                    </div>
+                    <div class="list-item">
+                        <img class="rounded" src="img/user.jpg" alt="">
+                        <div>
+                            <h2>Dale Byrd</h2>
+                            <small><a href="#">dale.byrd52@example.com</a></small>
+                        </div>
+                        <div class="list-item-date">10/15/15</div>
+                    </div>
+                    <div class="list-item">
+                        <img class="rounded" src="img/user.jpg" alt="">
+                        <div>
+                            <h2>Dawn Wood</h2>
+                            <small><a href="#">dawn.wood16@example.com</a></small>
+                        </div>
+                        <div class="list-item-date">10/15/15</div>
+                    </div>
+                    <div class="list-item">
+                        <img class="rounded" src="img/user.jpg" alt="">
+                        <div>
+                            <h2>Dan Oliver</h2>
+                            <small><a href="#">dan.oliver82@example.com</a></small>
+                        </div>
+                        <div class="list-item-date">10/15/15</div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Recent Activity</h2>
+                <div class="list">
+                    <a class="list-item" href="#">
+                        <img class="rounded" src="img/user.jpg" alt="">
+                        <div>
+                            <h2>Victoria Chambers commented on YourApp's SEO Tips</h2>
+                            <small>4 hours ago</small>
+                        </div>
+                        <span class="list-item-chevron">&rang;</span>
+                    </a>
+                    <a class="list-item" href="#">
+                        <img class="rounded" src="img/user.jpg" alt="">
+                        <div>
+                            <h2>Dale Byrd like the post Facebook's Changes for 2016</h2>
+                            <small>5 hours ago</small>
+                        </div>
+                        <span class="list-item-chevron">&rang;</span>
+                    </a>
+                    <a class="list-item" href="#">
+                        <img class="rounded" src="img/user.jpg" alt="">
+                        <div>
+                            <h2>Dawn Wood commented on Facebook's Changes for 2016</h2>
+                            <small>5 hours ago</small>
+                        </div>
+                        <span class="list-item-chevron">&rang;</span>
+                    </a>
+                    <a class="list-item" href="#">
+                        <img class="rounded" src="img/user.jpg" alt="">
+                        <div>
+                            <h2>Dan Oliver posted Yourapp's SEO Tips</h2>
+                            <small>1 day ago</small>
+                        </div>
+                        <span class="list-item-chevron">&rang;</span>
+                    </a>
+                </div>
+            </section>
+            <section>
+                <h2>Social Stats</h2>
+                <div class="row">
+                    <div class="social">
+                        <div class="social-icon">
+                            <img src="icons/icon-twitter.svg" alt="Twitter">
+                        </div>
+                        <div>
+                            <h3>Twitter</h3>
+                            <div class="social-count">10,345</div>
+                        </div>
+                    </div>
+                    <div class="social">
+                        <div class="social-icon">
+                            <img src="icons/icon-facebook.svg" alt="Facebook">
+                        </div>
+                        <div>
+                            <h3>Facebook</h3>
+                            <div class="social-count">8,739</div>
+                        </div>
+                    </div>
+                    <div class="social">
+                        <div class="social-icon">
+                            <img src="icons/icon-google-plus.svg" alt="Google+">
+                        </div>
+                        <div>
+                            <h3>Google+</h3>
+                            <div class="social-count">2,530</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>Panel</section>
+            <section>
+                <h2>Message User</h2>
+                <form action="index.html" method="post">
+                    <input type="search" placeholder="Search for User">
+                    <textarea placeholder="Message for User" rows="10"></textarea>
+                    <button class="btn" type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+    </div> <!-- end .wrapper -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+</body>
+</html>

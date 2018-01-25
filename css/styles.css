@@ -13,6 +13,11 @@ body {
   background-color: #fbfbfb;
 }
 
+a {
+  color: #7377bf;
+  text-decoration: none;
+}
+
 strong {
   font-weight: 700;
 }
@@ -41,12 +46,22 @@ h3 {
 ==================================== */
 
 .wrapper {
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
   display: flex;
 }
 
 .row {
   display: flex;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.col {
+  flex: 1 0 auto;
+  padding: 2em;
+}
+
+.col:not(:first-child) {
+  border-left: 1px solid #d8d8d8;
 }
 
 button {
@@ -120,16 +135,15 @@ button {
   height: 32px;
 }
 
+.main {
+  flex-grow: 1;
+}
+
 .alert {
   background-color: #7377bf;
   padding: 0.5em 1em;
   border-radius: 3px;
   color: #fff;
-}
-
-.panel {
-  padding: 1em;
-  border-bottom: 1px solid #d8d8d8;
 }
 
 .social {
@@ -145,7 +159,6 @@ button {
 
 .social-icon {
   background-color: #7377bf;
-  fill: #fff;
   border-radius: 50%;
   width: 72px;
   height: 72px;
@@ -167,6 +180,42 @@ button {
   color: #666;
   font-size: 3em; /* 48 / 16 */
   font-weight: 300;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 1em 0;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item img {
+  width: 38px;
+  height: 38px;
+  margin-right: .625em;
+}
+
+.list-item h2 {
+  color: #666;
+  text-transform: none;
+  margin: 0;
+}
+
+.list-item small {
+  font-size: .928571429em /* 13 / 14 */
+}
+
+.list-item-date {
+  margin-left: auto;
+  font-size: .928571429em /* 13 / 14 */
+}
+
+.list-item-chevron {
+  margin-left: auto;
 }
 
 input,
