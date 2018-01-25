@@ -52,16 +52,8 @@ h3 {
 
 .row {
   display: flex;
-  border-bottom: 1px solid #d8d8d8;
-}
-
-.col {
-  flex: 1 0 auto;
-  padding: 2em;
-}
-
-.col:not(:first-child) {
-  border-left: 1px solid #d8d8d8;
+  flex-direction: column;
+  background-color: #fff;
 }
 
 button {
@@ -154,7 +146,7 @@ button {
   border: 1px solid #d1d1d1;
   border-radius: 5px;
   padding: 1.25em;
-  margin: 1em;
+  margin: 1em 0;
 }
 
 .social-icon {
@@ -274,12 +266,42 @@ textarea::placeholder {
   border-radius: 50%;
 }
 
+.col-1,
+.col-2,
+.col-3 {
+  padding: 1em 2em;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+
+
 /* =================================
   Media Queries
 ==================================== */
 
 @media (min-width: 320px) {}
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+  }
+
+  .col-2:not(:first-child),
+  .col-3:not(:first-child) {
+    border-left: 1px solid #d8d8d8;
+  }
+
+  .col-1 {
+    width: 100%;
+  }
+  
+  .col-2 {
+    width: 50%;
+  }
+  
+  .col-3 {
+    width: 33.333333333%;
+  }
+}
 
 @media (min-width: 1024px) {}
