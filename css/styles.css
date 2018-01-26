@@ -92,10 +92,24 @@ button {
 .header img {
   width: 20px;
   height: 20px;
+  margin-right: .625em;
 }
 
 .header button {
-  padding: 1em;
+  /* padding: .3125em; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.header li {
+  padding: .5em 1em;
+}
+
+.header li:last-child {
+  border-left: 1px solid #5d61bf;
+  padding-right: 0;
 }
 
 .header .avatar {
@@ -133,9 +147,27 @@ button {
 
 .alert {
   background-color: #7377bf;
-  padding: 0.5em 1em;
+  padding: 1em 3em 1em 1em;
   border-radius: 3px;
   color: #fff;
+  font-weight: 300;
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.alert .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .5em 1em;
+  font-size: 1.375em;
+  color: #fff;
+  line-height: 1;
+  transition: opacity .3s;
+}
+
+.alert .close:hover {
+  opacity: .5;
 }
 
 .social {
