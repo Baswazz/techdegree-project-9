@@ -62,7 +62,11 @@
                         <button class="close">&times;</button>
                     </div>
                     <h2>Traffic</h2>
-                    <canvas id="traffic"></canvas>
+                        <div class="chart-container">
+                            <div class="chart-container">
+                                <canvas id="traffic"></canvas>
+                            </div>
+                        </div>
                 </section>
             </div>
             
@@ -70,53 +74,20 @@
             <div class="row">
                 <section class="col-2">
                     <h2>Daily Traffic</h2>
-                    <canvas id="daily-traffic"></canvas>
+                    <div class="chart-container">
+                        <canvas id="daily-traffic"></canvas>
+                    </div>
                 </section>
                 <section class="col-2">
                     <h2>Mobile Users</h2>
-                    <canvas id="mobile-users"></canvas>
+                    <div class="chart-container">
+                        <canvas id="mobile-users"></canvas>
+                    </div>
                 </section>
             </div>
 
             <!-- Social Stats -->
-            <section class="row">
-                <div class="col-3">
-                    <h2>Social stats</h2>
-                    <div class="social">
-                        <div class="social-icon">
-                            <img src="icons/icon-twitter.svg" alt="Twitter">
-                        </div>
-                        <div>
-                            <h3>Twitter</h3>
-                            <div class="social-count">10,345</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <h2>&nbsp;</h2>
-                    <div class="social">
-                        <div class="social-icon">
-                            <img src="icons/icon-facebook.svg" alt="Facebook">
-                        </div>
-                        <div>
-                            <h3>Facebook</h3>
-                            <div class="social-count">8,739</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <h2>&nbsp;</h2>
-                    <div class="social">
-                        <div class="social-icon">
-                            <img src="icons/icon-google-plus.svg" alt="Google+">
-                        </div>
-                        <div>
-                            <h3>Google+</h3>
-                            <div class="social-count">2,530</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
 
             <!-- New Members / Recent Activity -->
             <div class="row">
@@ -225,22 +196,36 @@
             data: {
                 labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
                 datasets: [{
-                    // label: '# of Votes',
-                    data: [750, 1250, 1000, 1500, 750, 1250, 1000, 1500, 750, 1250, 1000],
-                    backgroundColor: [
-                        'rgba(115, 119, 191, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(115, 119, 191, 1)'
-                    ],
-                    borderWidth: 1
+                    label: 'Dataset #1',
+                    data: [500, 750, 1250, 1000, 1500, 750, 1250, 1000, 1500, 750, 1250],
+                    backgroundColor: 'rgba(115, 119, 191, 0.2)',
+                    borderColor: 'rgba(115, 119, 191, 1)',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'rgba(255, 255, 255, 1)',
+                    pointRadius: 6,
+                    pointBorderWidth: 2,
+                    pointHoverRadius: 6,
                 }]
             },
             options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                elements: {
+                    line: {
+                        tension: 0
+                    }
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero:true
+                            beginAtZero: false
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            // display: false
                         }
                     }]
                 }
@@ -254,24 +239,21 @@
             data: {
                 labels: ["S", "M", "T", "W", "T", "F", "S"],
                 datasets: [{
-                    // label: '# of Votes',
+                    label: 'Dataset #2',
                     data: [75, 87.5, 175, 125, 225, 187.5, 87.5],
-                    backgroundColor: [
-                        'rgba(115, 119, 191, 1)',
-                        'rgba(115, 119, 191, 1)',
-                        'rgba(115, 119, 191, 1)',
-                        'rgba(115, 119, 191, 1)',
-                        'rgba(115, 119, 191, 1)',
-                        'rgba(115, 119, 191, 1)',
-                        'rgba(115, 119, 191, 1)'
-                    ]
+                    backgroundColor: 'rgba(115, 119, 191, 1)',
+                    hoverBackgroundColor: 'rgba(99,103,166,1)'
                 }]
             },
             options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero:true
+                            beginAtZero: true
                         }
                     }]
                 }
@@ -296,6 +278,12 @@
                     'Tablets',
                     'Desktop'
                 ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    position: 'right'
+                }
             }
         });
     </script>
