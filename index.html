@@ -54,9 +54,13 @@
         </nav>
 
         <main class="main">
-            <ul class="tabs">
-                <li>Dashboard</li>
-            </ul>
+            <div class="nav-tabs">
+                <ul>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                </ul>
+                <input type="search" placeholder="Search">
+            </div>
+
             <!-- Traffic -->
             <div class="row">
                 <section class="col-1">
@@ -131,7 +135,7 @@
                     <h2>New Members</h2>
                     <div class="list">
                         <div class="list-item">
-                            <img class="rounded" src="img/20.jpg" alt="">
+                            <img class="rounded" src="img/60.jpg" alt="">
                             <div>
                                 <h2>Victoria Chambers</h2>
                                 <small><a href="#">victoria.chambers80@example.com</a></small>
@@ -168,7 +172,7 @@
                     <h2>Recent Activity</h2>
                     <div class="list">
                         <a class="list-item" href="#">
-                            <img class="rounded" src="img/60.jpg" alt="">
+                            <img class="rounded" src="img/20.jpg" alt="">
                             <div>
                                 <h2>Victoria Chambers commented on YourApp's SEO Tips</h2>
                                 <small>4 hours ago</small>
@@ -208,14 +212,30 @@
                 <section class="col-2">
                     <h2>Message User</h2>
                     <form action="index.html" method="post">
-                        <input type="search" placeholder="Search for User">
-                        <textarea placeholder="Message for User" rows="10"></textarea>
+                        <input type="search" id="user_search" placeholder="Search for User">
+                        <textarea id="message" name="user_message" placeholder="Message for User" rows="10"></textarea>
                         <button class="btn" type="submit">Send</button>
                     </form>
                 </section>
                 <section class="col-2">
                     <h2>Settings</h2>
-                    content
+                    <form action="index.html" method="post">
+                        <select name="timezone" id="timezone" name="settings_timezone">
+                            <option value="" selected hidden disabled>Select Timezone</option>
+                            <option value="africa">Africa</option>
+                            <option value="america">America</option>
+                            <option value="antarctica">Antarctica</option>
+                            <option value="arctic">Arctic</option>
+                            <option value="asia">Asia</option>
+                            <option value="atlantic">Atlantic</option>
+                            <option value="australia">Australia</option>
+                            <option value="europe">Europe</option>
+                            <option value="indian">Indian</option>
+                            <option value="pacific">Pacific</option>
+                        </select>
+                        <button class="btn" type="submit">Save</button>
+                        <button class="btn" type="reset">cancel</button>
+                    </form>
                 </section>
             </div>
             

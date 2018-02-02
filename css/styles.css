@@ -11,6 +11,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   background-color: #fbfbfb;
+  color: #666;
 }
 
 a {
@@ -29,16 +30,15 @@ ul {
 }
 
 h2 {
-  font-size: .875em;
+  font-size: 1em;
   font-weight: 400;
   text-transform: uppercase;
-  color: #666;
 }
 
 h3 {
   color: #7477bf;
   font-weight: 700;
-  font-size: 1.125em; /* 18 / 16 */
+  font-size: 1.285714286em; /* 18 / 14 */
 }
 
 /* =================================
@@ -87,7 +87,7 @@ button {
 
 .header .logo {
   margin: 0;
-  font-size: 1.571428571em;
+  font-size: 1.571428571em; /* 22 / 14 */
   font-weight: 300;
 }
 
@@ -95,6 +95,10 @@ button {
   width: 20px;
   height: 20px;
   margin-right: .3em;
+}
+
+.header img.avatar {
+  margin-right: 1em;
 }
 
 .header li {
@@ -146,6 +150,40 @@ button {
 .nav img {
   width: 24px;
   height: 24px;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #d8d8d8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1em;
+}
+
+.nav-tabs li {
+  display: inline-block;
+  margin-bottom: -1px;
+}
+
+.nav-tabs li a {
+  padding: 1em;
+  display: block;
+  color: #666;
+  font-size: 1.5em; /* 21 / 14 */
+}
+
+.nav-tabs li.active a {
+  background-color: #fff;
+  border-right: 1px solid #d8d8d8;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+.nav-tabs input[type="search"] {
+  margin-bottom: 0;
+  width: 25%;
+  min-width: 300px;
+  display: none;
 }
 
 .main {
@@ -217,8 +255,7 @@ button {
 }
 
 .social-count {
-  color: #666;
-  font-size: 2em; /* 32 / 16 */
+  font-size: 3.428571429em; /* 48 / 14 */
   font-weight: 300;
 }
 
@@ -260,6 +297,7 @@ button {
 }
 
 input,
+select,
 textarea {
   width: 100%;
   margin-bottom: 1em;
@@ -272,6 +310,7 @@ textarea {
 }
 
 input:focus,
+select:focus,
 textarea:focus {
   border-color: #7377bf;
   background-color: #fff;
@@ -279,9 +318,21 @@ textarea:focus {
 }
 
 input::placeholder,
-textarea::placeholder {
+textarea::placeholder,
+select {
   color: #bcbcbc;
   font-weight: 300;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+option:disabled {
+  background-color: #ccc;
 }
 
 .btn {
@@ -363,12 +414,19 @@ textarea::placeholder {
   .nav {
     width: 90px;
     padding: 1em 0;
-    
   }
 
   .nav img {
     width: 32px;
     height: 32px;
+  }
+
+  .nav-tabs {
+    padding-right: 2em;
+  }
+
+  .nav-tabs input[type="search"] {
+    display: block;
   }
 
   .main {
