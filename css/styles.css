@@ -65,8 +65,9 @@ button {
   padding: 0;
 }
 
+.setting,
 .header,
-.header ul {
+.header > ul {
   display: flex;
   align-items: center;
 }
@@ -101,11 +102,12 @@ button {
   margin-right: 1em;
 }
 
-.header li {
+.header > ul > li {
   padding-left: 1em;
+  position: relative;
 }
 
-.header li:first-child {
+.header > ul > li:first-child {
   padding-right: 1em;
 }
 
@@ -117,7 +119,7 @@ button {
   padding: .4em 0;
 }
 
-.header li:last-child {
+.header > ul > li:last-child {
   border-left: 1px solid #5d61bf;
   padding-right: 0;
 }
@@ -292,15 +294,16 @@ button {
   font-size: .928571429em /* 13 / 14 */
 }
 
-.list-item-chevron {
+.list-item .mdi {
   margin-left: auto;
+  font-size: 2em;
 }
 
 input,
 select,
 textarea {
   width: 100%;
-  margin-bottom: 1em;
+  margin-bottom: 1.2em;
   background-color: #fbfbfb;
   border: 1px solid #d1d1d1;
   border-radius: 5px;
@@ -331,6 +334,20 @@ select {
   outline: none;
 }
 
+.select {
+  position: relative;
+}
+
+.select:before {
+  font: normal normal normal 24px/1 "Material Design Icons";
+  content: "\F140";
+  position: absolute;
+  top: 0;
+  right: .2em;
+  pointer-events: none;
+  color: #7377bf;
+}
+
 option:disabled {
   background-color: #ccc;
 }
@@ -345,11 +362,16 @@ option:disabled {
   border: none;
   width: 100%;
   padding: 1.5em;
-  transition: background-color .2s;
+  transition: opacity .2s;
+  margin-bottom: 1em;
+}
+
+.btn-cancel {
+  background-color: #b2b2b2;
 }
 
 .btn:hover {
-  background-color: #6367a6;
+  opacity: .8;
 }
 
 .dot {
@@ -378,7 +400,162 @@ option:disabled {
   height: 30vh;
 }
 
+.setting {
+  padding-bottom: 1em;
+  margin-right: 20%;
+}
 
+/* Switch */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left: auto;
+
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #adadad;
+  border: 2px solid #dadad5;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border: 2px solid #dadad5;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background-color: #7377bf;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #7377bf;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.dropdown-content {
+  display: none;
+  background-color: #fff;
+  position: absolute;
+  top: 40px;
+  right: 4px;
+  border-radius: 5px;
+  min-width: 200px;
+  max-width: 420px;
+  box-shadow: 0 1px 0 0 rgba(0,0,0,0.1), 0 0 1px 1px rgba(0,0,0,0.08);
+  animation: fade .3s;
+}
+
+.dropdown-content:after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px 0 0 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 2px rgba(0,0,0,0.08);
+  top: -6px;
+  right: 20px;
+}
+
+.dropdown-show .dropdown-content {
+  display: block;
+}
+
+.dropdown-content li {
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.dropdown-content li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a {
+  color: #666;
+  padding: 1.5em;
+}
+
+.tabs {
+  margin-bottom: 2em;
+}
+
+.tabs li {
+  display: inline-block;
+}
+
+.tabs li a {
+  color: #8f8f8f;
+  font-weight: 700;
+  display: block;
+  padding: 5px 12px;
+  transition: .3s ease-out;
+  border-radius: 13px;
+}
+
+.tabs li a:hover {
+  color: #666;
+}
+
+.tabs li a.active {
+  background-color: #81c98f;
+  color: #fff;
+  
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.show {
+  display: block;
+}
 
 /* =================================
   Media Queries
@@ -451,7 +628,17 @@ option:disabled {
     margin-bottom: 0;
   }
 
-
+  .btn-group {
+    display: flex;
+  }
+  
+  .btn-group .btn {
+    flex-grow: 1;
+  }
+  
+  .btn-group .btn:not(:first-child) {
+    margin-left: 2em;
+  }
 }
 
 @media (min-width: 1024px) {
