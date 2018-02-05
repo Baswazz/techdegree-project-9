@@ -41,3 +41,12 @@ tabs.addEventListener('click', function(e) {
         }
     }
 });
+
+/*
+Create a “Send” button and use JS to allow you to submit the form and display a confirmation the message was sent. You won't actually submit the form, just simulate the action using JavaScript.
+Use JS to display error messages if user isn’t selected or message field is empty.
+
+Add an "autocomplete" feature for the "Search for User" box, listing names that match the search term.
+Use local storage to save the settings.
+When page is reloaded the settings are remembered.
+*/
