@@ -1,5 +1,9 @@
-const chartTrafficId = document.getElementById("traffic").getContext('2d');
-const chartTraffic = function(labels, data) {
+const chartTrafficId = document.getElementById("traffic");
+const chartTrafficDefault = chartTraffic(["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"], [500, 750, 1250, 1000, 1500, 750, 1250, 1000, 1500, 750, 1250]);
+
+// Fix chart hover: https://github.com/jtblin/angular-chart.js/issues/187#issuecomment-190769767
+
+function chartTraffic(labels, data) {
     new Chart(chartTrafficId, {
         type: 'line',
         data: {
@@ -59,11 +63,11 @@ dropdown.addEventListener('click', function(e) {
 const tabs       = document.querySelector('.tabs');
 const tabContent = document.querySelectorAll('.tab-content');
 
-chartTraffic(["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"], [100, 150, 250, 300, 250, 350, 250]);
-
 tabs.addEventListener('click', function(e) {
     if (e.target.tagName === 'BUTTON') {
         e.preventDefault();
+        const chartTrafficIdParent = chartTrafficId.closest('.chart-container');
+        chartTrafficId.remove();
 
         anchors = tabs.getElementsByTagName('BUTTON');
         for (i = 0; i < anchors.length; i ++) {
@@ -71,17 +75,18 @@ tabs.addEventListener('click', function(e) {
         }     
         e.target.classList.add('active')
 
-    
-
-        // console.log(e.target.innerText);
-
+        // Chart data
         if (e.target.innerText === 'Hourly' ) {
+            chartTrafficIdParent.append('<canvas id="traffic"></canvas>');
             chartTraffic(["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"], [100, 150, 250, 300, 250, 350, 250]);
         } else if (e.target.innerText === 'Daily' ) {
+            chartTrafficIdParent.append('<canvas id="traffic"></canvas>');
             chartTraffic(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], [500, 750, 1250, 1000, 1500, 500, 400]);
         } else if (e.target.innerText === 'Weekly' ) {
+            chartTrafficIdParent.append('<canvas id="traffic"></canvas>');
             chartTraffic(["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"], [500, 750, 1250, 1000, 1500, 750, 1250, 1000, 1500, 750, 1250]);
         } else if (e.target.innerText === 'Monthly' ) {
+            chartTrafficIdParent.append('<canvas id="traffic"></canvas>');
             chartTraffic(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"], [2000, 1750, 2250, 2000, 2200, 2100, 2300, 2000, 2100, 2200, 1950, 2200]);
         }
     }
