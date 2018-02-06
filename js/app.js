@@ -59,47 +59,6 @@ dropdown.addEventListener('click', function(e) {
 const tabs       = document.querySelector('.tabs');
 const tabContent = document.querySelectorAll('.tab-content');
 
-// tabs.addEventListener('click', function(e) {
-//     if (e.target.tagName === 'A') {
-//         e.preventDefault();
-
-//         anchors = tabs.getElementsByTagName('a');
-//         for (i = 0; i < anchors.length; i ++) {
-//             anchors[i].classList.remove('active');
-//         }
-        
-//         e.target.classList.add('active')
-//         const tabHref = e.target.getAttribute('href');
-
-//         for (i = 0; i < tabContent.length; i ++) {
-//             const tabId = '#' + tabContent[i].id;
-//             tabContent[i].classList.remove('show');
-
-//             if (e.target.getAttribute('href') === '#traffic-1' ) {
-//                 console.log('traffic1');
-//                 // Hourly
-//                 chartTraffic(["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"], [100, 150, 250, 300, 250, 350, 250]);
-//             } else if (e.target.getAttribute('href') === '#traffic-2' ) {
-//                 console.log('traffic2');
-//                 // Daily
-//                 chartTraffic(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], [500, 750, 1250, 1000, 1500, 500, 400]);
-//             } else if (e.target.getAttribute('href') === '#traffic-3' ) {
-//                 console.log('traffic3');
-//                 // Weekly
-//                 chartTraffic(["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"], [500, 750, 1250, 1000, 1500, 750, 1250, 1000, 1500, 750, 1250]);
-//             } else if (e.target.getAttribute('href') === '#traffic-1' ) {
-//                 console.log('traffic4');
-//                 // Monthly
-//                 chartTraffic(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"], [2000, 1750, 2250, 2000, 2200, 2100, 2300, 2000, 2100, 2200, 1950, 2200]);
-//             }
-
-//             if (tabId === tabHref) {
-//                 tabContent[i].classList.add('show');
-//             }
-//         }
-//     }
-// });
-
 chartTraffic(["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"], [100, 150, 250, 300, 250, 350, 250]);
 
 tabs.addEventListener('click', function(e) {
@@ -128,8 +87,11 @@ tabs.addEventListener('click', function(e) {
     }
 });
 
-// Charts
+/*
+Create a “Send” button and use JS to allow you to submit the form and display a confirmation the message was sent. You won't actually submit the form, just simulate the action using JavaScript.
+Use JS to display error messages if user isn’t selected or message field is empty.
 
-
-
-
+Add an "autocomplete" feature for the "Search for User" box, listing names that match the search term.
+Use local storage to save the settings.
+When page is reloaded the settings are remembered.
+*/
