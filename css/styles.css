@@ -534,7 +534,7 @@ input:checked + .slider:before {
   display: inline-block;
 }
 
-.tabs li a {
+.tabs li button {
   color: #8f8f8f;
   font-weight: 700;
   display: block;
@@ -543,24 +543,16 @@ input:checked + .slider:before {
   border-radius: 13px;
 }
 
-.tabs li a:hover {
+.tabs li button:hover {
   /* color: #666; */
   background-color: #e9e9e9;
 }
 
-.tabs li a.active {
+.tabs li button.active {
   background-color: #81c98f;
   color: #fff;
   cursor: default;
   
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.show {
-  display: block;
 }
 
 /* =================================

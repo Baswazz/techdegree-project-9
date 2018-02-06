@@ -76,23 +76,14 @@
                     <div class="tabs-wrapper">
                         <h2>Traffic</h2>
                         <ul class="tabs">
-                            <li><a href="#traffic-1" class="active">Hourly</a></li>
-                            <li><a href="#traffic-2">Daily</a></li>
-                            <li><a href="#traffic-3">Weekly</a></li>
-                            <li><a href="#traffic-4">Monthly</a></li>
+                            <li><button class="active">Hourly</button></li>
+                            <li><button>Daily</button></li>
+                            <li><button>Weekly</button></li>
+                            <li><button>Monthly</button></li>
                         </ul>
                     </div>
-                    <div class="chart-container tab-content show" id="traffic-1">
-                        <canvas id="traffic-hourly"></canvas>
-                    </div>
-                    <div class="chart-container tab-content" id="traffic-2">
-                        <canvas id="traffic-daily"></canvas>
-                    </div>
-                    <div class="chart-container tab-content" id="traffic-3">
-                        <canvas id="traffic-weekly"></canvas>
-                    </div>
-                    <div class="chart-container tab-content" id="traffic-4">
-                        <canvas id="traffic-monthly"></canvas>
+                    <div class="chart-container tab-content show">
+                        <canvas id="traffic"></canvas>
                     </div>
                 </section>
             </div>
@@ -285,179 +276,10 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="js/app.js"></script>
-    <script>
-        // Line Chart
-        var ctx = document.getElementById("traffic-hourly").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"],
-                datasets: [{
-                    label: 'Traffic',
-                    data: [100, 150, 250, 300, 250, 350, 250],
-                    backgroundColor: 'rgba(115, 119, 191, 0.2)',
-                    borderColor: 'rgba(115, 119, 191, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'rgba(255, 255, 255, 1)',
-                    pointRadius: 6,
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 6,
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                legend: {
-                    display: false
-                },
-                elements: {
-                    line: {
-                        tension: 0
-                    }
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: false
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            // display: false
-                        }
-                    }]
-                }
-            }
-        });
-
-        var ctx = document.getElementById("traffic-daily").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-                datasets: [{
-                    label: 'Traffic',
-                    data: [500, 750, 1250, 1000, 1500, 500, 400],
-                    backgroundColor: 'rgba(115, 119, 191, 0.2)',
-                    borderColor: 'rgba(115, 119, 191, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'rgba(255, 255, 255, 1)',
-                    pointRadius: 6,
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 6,
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                legend: {
-                    display: false
-                },
-                elements: {
-                    line: {
-                        tension: 0
-                    }
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: false
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            // display: false
-                        }
-                    }]
-                }
-            }
-        });
-
-        var ctx = document.getElementById("traffic-weekly").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
-                datasets: [{
-                    label: 'Traffic',
-                    data: [500, 750, 1250, 1000, 1500, 750, 1250, 1000, 1500, 750, 1250],
-                    backgroundColor: 'rgba(115, 119, 191, 0.2)',
-                    borderColor: 'rgba(115, 119, 191, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'rgba(255, 255, 255, 1)',
-                    pointRadius: 6,
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 6,
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                legend: {
-                    display: false
-                },
-                elements: {
-                    line: {
-                        tension: 0
-                    }
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: false
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            // display: false
-                        }
-                    }]
-                }
-            }
-        });
-
-        var ctx = document.getElementById("traffic-monthly").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"],
-                datasets: [{
-                    label: 'Traffic',
-                    data: [2000, 1750, 2250, 2000, 2200, 2100, 2300, 2000, 2100, 2200, 1950, 2200],
-                    backgroundColor: 'rgba(115, 119, 191, 0.2)',
-                    borderColor: 'rgba(115, 119, 191, 1)',
-                    borderWidth: 1,
-                    pointBackgroundColor: 'rgba(255, 255, 255, 1)',
-                    pointRadius: 6,
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 6,
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                legend: {
-                    display: false
-                },
-                elements: {
-                    line: {
-                        tension: 0
-                    }
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: false
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            // display: false
-                        }
-                    }]
-                }
-            }
-        });
-
+    <script>    
         // Bar chart
-        var ctx = document.getElementById("daily-traffic").getContext('2d');
-        var myChart = new Chart(ctx, {
+        var chartBarId = document.getElementById("daily-traffic").getContext('2d');
+        var chartBar = new Chart(chartBarId, {
             type: 'bar',
             data: {
                 labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -487,8 +309,8 @@
         });
 
         // Doughnut chart
-        var ctx = document.getElementById("mobile-users").getContext('2d');
-        var myDoughnutChart = new Chart(ctx, {
+        var chartDoughnutId = document.getElementById("mobile-users").getContext('2d');
+        var chartDoughnut = new Chart(chartDoughnutId, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -512,7 +334,7 @@
                     position: 'right'
                 }
             }
-        });
+        });      
     </script>
 </body>
 </html>
