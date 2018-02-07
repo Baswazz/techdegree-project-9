@@ -66,27 +66,22 @@ const tabContent = document.querySelectorAll('.tab-content');
 tabs.addEventListener('click', function(e) {
     if (e.target.tagName === 'BUTTON') {
         e.preventDefault();
-        const chartTrafficIdParent = chartTrafficId.closest('.chart-container');
-        chartTrafficId.remove();
+        // chartTrafficId.remove();
 
         anchors = tabs.getElementsByTagName('BUTTON');
         for (i = 0; i < anchors.length; i ++) {
             anchors[i].classList.remove('active');
         }     
-        e.target.classList.add('active')
+        e.target.classList.add('active');
 
         // Chart data
         if (e.target.innerText === 'Hourly' ) {
-            chartTrafficIdParent.append('<canvas id="traffic"></canvas>');
             chartTraffic(["9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"], [100, 150, 250, 300, 250, 350, 250]);
         } else if (e.target.innerText === 'Daily' ) {
-            chartTrafficIdParent.append('<canvas id="traffic"></canvas>');
             chartTraffic(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], [500, 750, 1250, 1000, 1500, 500, 400]);
         } else if (e.target.innerText === 'Weekly' ) {
-            chartTrafficIdParent.append('<canvas id="traffic"></canvas>');
             chartTraffic(["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"], [500, 750, 1250, 1000, 1500, 750, 1250, 1000, 1500, 750, 1250]);
         } else if (e.target.innerText === 'Monthly' ) {
-            chartTrafficIdParent.append('<canvas id="traffic"></canvas>');
             chartTraffic(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"], [2000, 1750, 2250, 2000, 2200, 2100, 2300, 2000, 2100, 2200, 1950, 2200]);
         }
     }
@@ -100,3 +95,20 @@ Add an "autocomplete" feature for the "Search for User" box, listing names that 
 Use local storage to save the settings.
 When page is reloaded the settings are remembered.
 */
+
+// Message User Widget
+const searchInput = document.getElementById('user-search');
+const textArea    = document.getElementById('user-message');
+const submitUser  = document.getElementById('user-submit');
+
+const submitMessage = '<p>Success!</p>';
+const errorMessage = '<p>Error!</p>';
+
+submitUser.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (searchInput.value !== '' || textArea.value !== '') {
+        console.log('Add to local storage');
+    } else {
+        submitUser.insertBefore(errorMessage);
+    }
+});
