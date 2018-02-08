@@ -551,6 +551,23 @@ input:checked + .slider:before {
   
 }
 
+.error,
+.success {
+  padding: .5em 1em;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.error {
+  background-color: #EF6F6C;
+  border: 1px solid #ed615e;
+}
+
+.success {
+  background-color: #85DB81;
+  border: 1px solid #79d874;
+}
+
 /* =================================
   Media Queries
 ==================================== */

@@ -226,8 +226,9 @@
             <div class="row ttt">
                 <section class="col-2">
                     <h2>Message User</h2>
-                    <form action="index.html" method="post" class="message-user">
-                        <input type="search" id="user-search" name="user_search" placeholder="Search for User">
+                    <form action="index.html" method="post" class="message-user" id="message-user">
+                        <input type="search" list="user-list" id="user-search" name="user_search" placeholder="Search for User">
+                        <datalist id="user-list"></datalist>
                         <textarea id="user-message" name="user_message" placeholder="Message for User" rows="10"></textarea>
                         <button class="btn" id="user-submit" type="submit">Send</button>
                     </form>

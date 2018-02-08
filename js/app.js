@@ -87,30 +87,53 @@ tabs.addEventListener('click', function(e) {
     }
 });
 
-/*
-Create a “Send” button and use JS to allow you to submit the form and display a confirmation the message was sent. You won't actually submit the form, just simulate the action using JavaScript.
-Use JS to display error messages if user isn’t selected or message field is empty.
-
-Add an "autocomplete" feature for the "Search for User" box, listing names that match the search term.
-Use local storage to save the settings.
-When page is reloaded the settings are remembered.
-*/
-
 // Message User Widget
-const submitUserForm = document.querySelector('.message-user');
-const searchInput = submitUserForm.querySelector('input[type=search]');
+const messageUserForm = document.querySelector('.message-user');
+const searchInput = messageUserForm.querySelector('input[type=search]');
+const textArea = document.getElementById('user-message');
 
-submitUserForm.addEventListener('submit', function(e) {
+messageUserForm.addEventListener('submit', function(e) {
+    e.preventDefault();
     message = document.createElement('div');
-    if (searchInput.value !== '') {
-        e.preventDefault(); /* temp */
+
+    // Remove message if there is one already
+    if (document.querySelector('.error')) {
+        document.querySelector('.error').remove();
+    } else if (document.querySelector('.success')) {
+        document.querySelector('.success').remove();
+    }
+
+    if (searchInput.value !== '' && textArea.value !== '') {
+        
         message.classList.add('success');
         message.innerText = 'Your message has been sent!';
-        console.log(message);
+
+        if (!document.querySelector('.success')) {
+            messageUserForm.appendChild(message);
+        }
     } else {
-        e.preventDefault();
         message.classList.add('error');
         message.innerText = 'Please select an existing user and write a message!';
-        console.log(message);
+
+        if (!document.querySelector('.error')) {
+            messageUserForm.appendChild(message);
+        }
     }
+});
+
+// Users object
+const users = [
+    { firstName: 'Dale', lastName: 'Byrd'},
+    { firstName: 'Dan', lastName: 'Oliver'},
+    { firstName: 'Dawn', lastName: 'Wood'},
+    { firstName: 'Victoria', lastName: 'Chambers'}
+];
+
+const dataList = document.getElementById('user-list');
+
+// Add users to datalist
+users.forEach(function(item) {
+    var option = document.createElement('option');
+    option.value = item.firstName + ' ' + item.lastName;
+    dataList.appendChild(option);
 });
