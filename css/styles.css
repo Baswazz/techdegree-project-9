@@ -32,6 +32,7 @@ h2 {
   font-size: 1em;
   font-weight: 400;
   text-transform: uppercase;
+  margin-top: 0;
 }
 
 h3 {
@@ -222,10 +223,6 @@ button {
   opacity: .5;
 }
 
-.social {
-  padding: 1em;
-}
-
 .social-item {
   display: flex;
   align-items: center;
@@ -237,9 +234,9 @@ button {
   margin-bottom: 1em;
 }
 
-.social-item:last-child {
+/* .social-item:last-child {
   margin-bottom: 0;
-}
+} */
 
 .social-icon {
   background-color: #7377bf;
@@ -612,18 +609,8 @@ input:checked + .slider:before {
   }
 
   .social {
-    padding: 2em;
-    /* background-color: #fff; */
+    display: flex;
     justify-content: space-between;
-  }
-
-  /* .social .row {
-    padding: 0;
-    justify-content: space-between;
-  } */
-
-  .social-item {
-    /* margin-bottom: 0; */
   }
 
   .btn-group {

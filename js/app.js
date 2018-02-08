@@ -97,18 +97,20 @@ When page is reloaded the settings are remembered.
 */
 
 // Message User Widget
-const searchInput = document.getElementById('user-search');
-const textArea    = document.getElementById('user-message');
-const submitUser  = document.getElementById('user-submit');
+const submitUserForm = document.querySelector('.message-user');
+const searchInput = submitUserForm.querySelector('input[type=search]');
 
-const submitMessage = '<p>Success!</p>';
-const errorMessage = '<p>Error!</p>';
-
-submitUser.addEventListener('click', function(e) {
-    e.preventDefault();
-    if (searchInput.value !== '' || textArea.value !== '') {
-        console.log('Add to local storage');
+submitUserForm.addEventListener('submit', function(e) {
+    message = document.createElement('div');
+    if (searchInput.value !== '') {
+        e.preventDefault(); /* temp */
+        message.classList.add('success');
+        message.innerText = 'Your message has been sent!';
+        console.log(message);
     } else {
-        submitUser.insertBefore(errorMessage);
+        e.preventDefault();
+        message.classList.add('error');
+        message.innerText = 'Please select an existing user and write a message!';
+        console.log(message);
     }
 });
