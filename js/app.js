@@ -1,8 +1,6 @@
 const chartTrafficId = document.getElementById("traffic");
 const chartTrafficDefault = chartTraffic(["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"], [500, 750, 1250, 1000, 1500, 750, 1250, 1000, 1500, 750, 1250]);
 
-// Fix chart hover: https://github.com/jtblin/angular-chart.js/issues/187#issuecomment-190769767
-
 function chartTraffic(labels, data) {
     new Chart(chartTrafficId, {
         type: 'line',
@@ -136,4 +134,122 @@ users.forEach(function(item) {
     var option = document.createElement('option');
     option.value = item.firstName + ' ' + item.lastName;
     dataList.appendChild(option);
+});
+
+// Settings
+const settingsForm   = document.querySelector('.settings');
+const timezoneSelect = document.getElementById('timezone');
+
+// Timezones object
+const timezones = [
+    { value: "-12", name: "(GMT-12:00) International Date Line West" },
+    { value: "-11", name: "(GMT-11:00) Midway Island, Samoa" },
+    { value: "-10", name: "(GMT-10:00) Hawaii" },
+    { value: "-9", name: "(GMT-09:00) Alaska" },
+    { value: "-8", name: "(GMT-08:00) Pacific Time (US & Canada)" },
+    { value: "-8", name: "(GMT-08:00) Tijuana, Baja California" },
+    { value: "-7", name: "(GMT-07:00) Arizona" },
+    { value: "-7", name: "(GMT-07:00) Chihuahua, La Paz, Mazatlan" },
+    { value: "-7", name: "(GMT-07:00) Mountain Time (US & Canada)" },
+    { value: "-6", name: "(GMT-06:00) Central America" },
+    { value: "-6", name: "(GMT-06:00) Central Time (US & Canada)" },
+    { value: "-6", name: "(GMT-06:00) Guadalajara, Mexico City, Monterrey" },
+    { value: "-6", name: "(GMT-06:00) Saskatchewan" },
+    { value: "-5", name: "(GMT-05:00) Bogota, Lima, Quito, Rio Branco" },
+    { value: "-5", name: "(GMT-05:00) Eastern Time (US & Canada)" },
+    { value: "-5", name: "(GMT-05:00) Indiana (East)" },
+    { value: "-4", name: "(GMT-04:00) Atlantic Time (Canada)" },
+    { value: "-4", name: "(GMT-04:00) Caracas, La Paz" },
+    { value: "-4", name: "(GMT-04:00) Manaus" },
+    { value: "-4", name: "(GMT-04:00) Santiago" },
+    { value: "-3.5", name: "(GMT-03:30) Newfoundland" },
+    { value: "-3", name: "(GMT-03:00) Brasilia" },
+    { value: "-3", name: "(GMT-03:00) Buenos Aires, Georgetown" },
+    { value: "-3", name: "(GMT-03:00) Greenland" },
+    { value: "-3", name: "(GMT-03:00) Montevideo" },
+    { value: "-2", name: "(GMT-02:00) Mid-Atlantic" },
+    { value: "-1", name: "(GMT-01:00) Cape Verde Is." },
+    { value: "-1", name: "(GMT-01:00) Azores" },
+    { value: "0", name: "(GMT+00:00) Casablanca, Monrovia, Reykjavik" },
+    { value: "0", name: "(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London" },
+    { value: "1", name: "(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna" },
+    { value: "1", name: "(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague" },
+    { value: "1", name: "(GMT+01:00) Brussels, Copenhagen, Madrid, Paris" },
+    { value: "1", name: "(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb" },
+    { value: "1", name: "(GMT+01:00) West Central Africa" },
+    { value: "2", name: "(GMT+02:00) Amman" },
+    { value: "2", name: "(GMT+02:00) Athens, Bucharest, Istanbul" },
+    { value: "2", name: "(GMT+02:00) Beirut" },
+    { value: "2", name: "(GMT+02:00) Cairo" },
+    { value: "2", name: "(GMT+02:00) Harare, Pretoria" },
+    { value: "2", name: "(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius" },
+    { value: "2", name: "(GMT+02:00) Jerusalem" },
+    { value: "2", name: "(GMT+02:00) Minsk" },
+    { value: "2", name: "(GMT+02:00) Windhoek" },
+    { value: "3", name: "(GMT+03:00) Kuwait, Riyadh, Baghdad" },
+    { value: "3", name: "(GMT+03:00) Moscow, St. Petersburg, Volgograd" },
+    { value: "3", name: "(GMT+03:00) Nairobi" },
+    { value: "3", name: "(GMT+03:00) Tbilisi" },
+    { value: "3.5", name: "(GMT+03:30) Tehran" },
+    { value: "4", name: "(GMT+04:00) Abu Dhabi, Muscat" },
+    { value: "4", name: "(GMT+04:00) Baku" },
+    { value: "4", name: "(GMT+04:00) Yerevan" },
+    { value: "4.5", name: "(GMT+04:30) Kabul" },
+    { value: "5", name: "(GMT+05:00) Yekaterinburg" },
+    { value: "5", name: "(GMT+05:00) Islamabad, Karachi, Tashkent" },
+    { value: "5.5", name: "(GMT+05:30) Sri Jayawardenapura" },
+    { value: "5.5", name: "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi" },
+    { value: "5.75", name: "(GMT+05:45) Kathmandu" },
+    { value: "6", name: "(GMT+06:00) Almaty, Novosibirsk" },
+    { value: "6", name: "(GMT+06:00) Astana, Dhaka" },
+    { value: "6.5", name: "(GMT+06:30) Yangon (Rangoon)" },
+    { value: "7", name: "(GMT+07:00) Bangkok, Hanoi, Jakarta" },
+    { value: "7", name: "(GMT+07:00) Krasnoyarsk" },
+    { value: "8", name: "(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi" },
+    { value: "8", name: "(GMT+08:00) Kuala Lumpur, Singapore" },
+    { value: "8", name: "(GMT+08:00) Irkutsk, Ulaan Bataar" },
+    { value: "8", name: "(GMT+08:00) Perth" },
+    { value: "8", name: "(GMT+08:00) Taipei" },
+    { value: "9", name: "(GMT+09:00) Osaka, Sapporo, Tokyo" },
+    { value: "9", name: "(GMT+09:00) Seoul" },
+    { value: "9", name: "(GMT+09:00) Yakutsk" },
+    { value: "9.5", name: "(GMT+09:30) Adelaide" },
+    { value: "9.5", name: "(GMT+09:30) Darwin" },
+    { value: "10", name: "(GMT+10:00) Brisbane" },
+    { value: "10", name: "(GMT+10:00) Canberra, Melbourne, Sydney" },
+    { value: "10", name: "(GMT+10:00) Hobart" },
+    { value: "10", name: "(GMT+10:00) Guam, Port Moresby" },
+    { value: "10", name: "(GMT+10:00) Vladivostok" },
+    { value: "11", name: "(GMT+11:00) Magadan, Solomon Is., New Caledonia" },
+    { value: "12", name: "(GMT+12:00) Auckland, Wellington" },
+    { value: "12", name: "(GMT+12:00) Fiji, Kamchatka, Marshall Is." },
+    { value: "13", name: "(GMT+13:00) Nuku'alofa" }
+];
+
+// Add timezones to select
+timezones.forEach(function(item) {
+    var option = document.createElement('option');
+    option.value = item.name;
+    option.innerText = item.name;
+    timezoneSelect.appendChild(option);
+});
+
+settingsForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    console.log('test');
+    // Timezone
+    const selectOption   = timezoneSelect.options[timezoneSelect.selectedIndex];
+    let lastSelected     = localStorage.getItem('selectTimezone');
+
+    if(lastSelected) {
+        timezoneSelect.value = lastSelected;
+    }
+
+    timezoneSelect.onchange = function(e) {
+        lastSelected = timezoneSelect.options[timezoneSelect.selectedIndex].value;
+        console.log(lastSelected);
+        localStorage.setItem('selectTimezone', lastSelected);
+    };
+
 });
