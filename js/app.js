@@ -137,8 +137,10 @@ users.forEach(function(item) {
 });
 
 // Settings
-const settingsForm   = document.querySelector('.settings');
-const timezoneSelect = document.getElementById('timezone');
+const settingsForm       = document.querySelector('.settings');
+const notificationSelect = document.getElementById('notifications-email');
+const profilePublic      = document.getElementById('profile-public');
+const timezoneSelect     = document.getElementById('timezone');
 
 // Timezones object
 const timezones = [
@@ -234,22 +236,28 @@ timezones.forEach(function(item) {
     timezoneSelect.appendChild(option);
 });
 
+// Timezone
+const selectOption   = timezoneSelect.options[timezoneSelect.selectedIndex];
+let timezoneLastSelected     = localStorage.getItem('selectTimezone');
+
+if (timezoneLastSelected) {
+    timezoneSelect.value = timezoneLastSelected;
+} else if () {
+
+} else if () {
+
+}
+
+// Save settings to localStorage
 settingsForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    console.log('test');
+    // Email Notifications
+    
+
+    // Profile to public
+
     // Timezone
-    const selectOption   = timezoneSelect.options[timezoneSelect.selectedIndex];
-    let lastSelected     = localStorage.getItem('selectTimezone');
-
-    if(lastSelected) {
-        timezoneSelect.value = lastSelected;
-    }
-
-    timezoneSelect.onchange = function(e) {
-        lastSelected = timezoneSelect.options[timezoneSelect.selectedIndex].value;
-        console.log(lastSelected);
-        localStorage.setItem('selectTimezone', lastSelected);
-    };
-
+    timezoneLastSelected = timezoneSelect.options[timezoneSelect.selectedIndex].value;
+    localStorage.setItem('selectTimezone', timezoneLastSelected);
 });
