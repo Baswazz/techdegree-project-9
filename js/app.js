@@ -137,10 +137,10 @@ users.forEach(function(item) {
 });
 
 // Settings
-const settingsForm       = document.querySelector('.settings');
-const notificationSelect = document.getElementById('notifications-email');
-const profilePublic      = document.getElementById('profile-public');
-const timezoneSelect     = document.getElementById('timezone');
+const settingsForm         = document.querySelector('.settings');
+const notificationSwitch   = document.getElementById('notifications-email');
+const profilePublicSwitch  = document.getElementById('profile-public');
+const timezoneSelect       = document.getElementById('timezone');
 
 // Timezones object
 const timezones = [
@@ -236,28 +236,33 @@ timezones.forEach(function(item) {
     timezoneSelect.appendChild(option);
 });
 
-// Timezone
-const selectOption   = timezoneSelect.options[timezoneSelect.selectedIndex];
-let timezoneLastSelected     = localStorage.getItem('selectTimezone');
+let notificationsLastSelected = localStorage.getItem('switchNotifications');
+let publicProfileLastSelected = localStorage.getItem('switchPublic');
+let timezoneLastSelected      = localStorage.getItem('selectTimezone');
+
+// Get settings from localStorage
+if (notificationsLastSelected == 'true') {
+    notificationSwitch.checked = true;
+}
+
+if (publicProfileLastSelected == 'true') {
+    profilePublicSwitch.checked = true;
+}
 
 if (timezoneLastSelected) {
     timezoneSelect.value = timezoneLastSelected;
-} else if () {
-
-} else if () {
-
 }
 
-// Save settings to localStorage
+// Set settings to localStorage
 settingsForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Email Notifications
-    
+    notificationsLastSelected = notificationSwitch.checked;
+    localStorage.setItem('switchNotifications', notificationsLastSelected);
 
-    // Profile to public
+    publicProfileLastSelected = profilePublicSwitch.checked;
+    localStorage.setItem('switchPublic', publicProfileLastSelected);
 
-    // Timezone
     timezoneLastSelected = timezoneSelect.options[timezoneSelect.selectedIndex].value;
     localStorage.setItem('selectTimezone', timezoneLastSelected);
 });

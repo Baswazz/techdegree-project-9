@@ -429,7 +429,6 @@ option:disabled {
   bottom: 0;
   background-color: #adadad;
   border: 2px solid #dadad5;
-  -webkit-transition: .3s;
   transition: .3s;
 }
 
@@ -442,7 +441,6 @@ option:disabled {
   bottom: 3px;
   background-color: white;
   border: 2px solid #dadad5;
-  -webkit-transition: .3s;
   transition: .3s;
 }
 
@@ -455,8 +453,6 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
@@ -469,12 +465,8 @@ input:checked + .slider:before {
 }
 
 @keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 100%;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 100%; }
 }
 
 .dropdown-content {
