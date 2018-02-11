@@ -39,8 +39,6 @@ function chartTraffic(labels, data) {
     });
 }
 
-
-
 // Alert remove
 const alert    = document.querySelector('.alert');
 const btnClose = alert.querySelector('.close');
@@ -55,6 +53,21 @@ const dropdownContent = document.querySelector('.dropdown-content');
 
 dropdown.addEventListener('click', function(e) {
     dropdownContent.parentNode.classList.toggle('dropdown-show');
+});
+
+// Notifications
+const notifocations = document.querySelector('.dropdown-content');
+const test = notifocations.querySelector('a');
+
+notifocations.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+        e.target.parentNode.remove();
+        if (dropdownContent.children.length === 0) {
+            console.log('test')
+            dropdown.querySelector('.dot').style.display = 'none';
+            dropdownContent.remove();
+        }
+    }
 });
 
 // Tabs
@@ -108,6 +121,9 @@ messageUserForm.addEventListener('submit', function(e) {
 
         if (!document.querySelector('.success')) {
             messageUserForm.appendChild(message);
+            // clear text
+            searchInput.value = '';
+            textArea.value = '';
         }
     } else {
         message.classList.add('error');
@@ -265,4 +281,24 @@ settingsForm.addEventListener('submit', function(e) {
 
     timezoneLastSelected = timezoneSelect.options[timezoneSelect.selectedIndex].value;
     localStorage.setItem('selectTimezone', timezoneLastSelected);
+});
+
+settingsForm.addEventListener('reset', function(e) {
+    e.preventDefault();
+    
+    notificationsLastSelected = localStorage.getItem('switchNotifications');
+    if (notificationsLastSelected == 'true') {
+        notificationSwitch.checked = true;
+    }
+    
+    publicProfileLastSelected = localStorage.getItem('switchPublic');
+    if (publicProfileLastSelected == 'true') {
+        profilePublicSwitch.checked = true;
+    }
+
+    timezoneLastSelected      = localStorage.getItem('selectTimezone');
+    if (timezoneLastSelected) {
+        timezoneSelect.value = timezoneLastSelected;
+    }
+    
 });

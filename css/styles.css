@@ -564,8 +564,6 @@ input:checked + .slider:before {
   Media Queries
 ==================================== */
 
-@media (min-width: 320px) {}
-
 @media (min-width: 768px) {
   .row {
     display: flex;
